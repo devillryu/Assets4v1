@@ -190,7 +190,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Join randomroom
+  m_Text: Cancel
 --- !u!222 &221255982
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 354951495}
   - component: {fileID: 354951494}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: CancelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Connect to master
+  m_Text: Quick search
 --- !u!222 &515909504
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 895948518}
   - component: {fileID: 895948517}
   m_Layer: 5
-  m_Name: Button
+  m_Name: QuicksearchButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -889,7 +889,7 @@ GameObject:
   - component: {fileID: 954078150}
   - component: {fileID: 954078151}
   m_Layer: 0
-  m_Name: NetworkConnectionManager
+  m_Name: QuickstartlobbyManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -923,7 +923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quickstartbutton: {fileID: 895948515}
   quickcancelbutton: {fileID: 354951492}
-  Roomsize: 4
+  Roomsize: 5
 --- !u!1 &1741349837
 GameObject:
   m_ObjectHideFlags: 0

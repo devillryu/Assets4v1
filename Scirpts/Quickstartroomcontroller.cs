@@ -5,7 +5,8 @@ using Photon.Pun;
 
 public class Quickstartroomcontroller : MonoBehaviourPunCallbacks
 {
-    public int multiplayerSceneIndex;
+    [SerializeField]
+    private int multiplayerSceneIndex;
     // Start is called before the first frame update
     public override void OnEnable()
     {
