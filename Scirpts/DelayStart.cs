@@ -36,7 +36,7 @@ public class DelayStart : MonoBehaviourPunCallbacks
     {
          if (!PhotonNetwork.IsConnected)
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("MainMenu");
             return;
         }
     }

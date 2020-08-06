@@ -15,7 +15,7 @@ public class Gamemanager : MonoBehaviour
     {
         if (!PhotonNetwork.IsConnected)
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("MainMenu");
             return;
         }
         // else
