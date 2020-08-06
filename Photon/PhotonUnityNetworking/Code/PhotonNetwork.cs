@@ -54,8 +54,6 @@ namespace Photon.Pun
             this.timestamp = timestamp;
         }
     }
-
-
     /// <summary>
     /// The main class to use the PhotonNetwork plugin.
     /// This class is static.

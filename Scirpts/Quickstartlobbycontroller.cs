@@ -9,9 +9,6 @@ public class Quickstartlobbycontroller : MonoBehaviourPunCallbacks
     public GameObject quickstartbutton;
     public GameObject quickcancelbutton;
     public int Roomsize;
-    private int SurCount = 0;
-    private bool HaveHunter = false;
-
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -21,30 +18,32 @@ public class Quickstartlobbycontroller : MonoBehaviourPunCallbacks
     {
         quickstartbutton.SetActive(false);
         quickcancelbutton.SetActive(true);
-        if (Swaprole.chooserole.Role == "Survival")
-        {
-            if (SurCount <= 3)
-            {
-                SurCount++;
-                PhotonNetwork.JoinRandomRoom();
-            }
-            else
-            {
-                CreateRoom();
-            }
-        }
-        else
-        {
-            if (!HaveHunter)
-            {
-                CreateRoom();
-            }
-            else
-            {
-                HaveHunter = !HaveHunter;
-                PhotonNetwork.JoinRandomRoom();
-            }
-        }
+        // if (Swaprole.chooserole.Role == "Survival")      //ใช้ได้ห้องเดียว
+        // {
+        //     if (PhotonNetwork.SurCount <= 3)
+        //     {
+        //         PhotonNetwork.SurCount++;
+        //         PhotonNetwork.JoinRandomRoom();
+        //     }
+        //     else
+        //     {
+        //         CreateRoom();
+        //     }
+        // }
+        // else
+        // {
+        //     if (PhotonNetwork.HaveHunter == false)
+        //     {
+        //         PhotonNetwork.HaveHunter = !PhotonNetwork.HaveHunter;
+        //         PhotonNetwork.JoinRandomRoom();
+                
+        //     }
+        //     else
+        //     {
+        //         CreateRoom();
+        //     }
+        // }
+        PhotonNetwork.JoinRandomRoom();
         Debug.Log("Quick start");
     }
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -56,7 +55,10 @@ public class Quickstartlobbycontroller : MonoBehaviourPunCallbacks
     {
         Debug.Log("Create Room");
         int randomRoomNumber = Random.Range(0, 10000);
-        RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)Roomsize };
+        RoomOptions roomOps = new RoomOptions() {IsVisible = true, IsOpen = true, MaxPlayers = (byte)Roomsize };
+        // roomOps.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable();
+        // int Surcount = (int)roomOps.Currentroom.CustomRoomProperties["Surcount"];
+
         PhotonNetwork.CreateRoom("Room" + randomRoomNumber, roomOps);
         Debug.Log(randomRoomNumber);
     }
