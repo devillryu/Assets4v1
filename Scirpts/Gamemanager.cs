@@ -45,7 +45,11 @@ public class Gamemanager : MonoBehaviour
     // }
     void CreatePlayer()
     {
+        print(Swaprole.chooserole.Role);
+        if(Swaprole.chooserole.Role == "Survival")
         PhotonNetwork.Instantiate(Path.Combine("Photonprefabs", "Player"), Vector3.zero, Quaternion.identity);
+        else
+        PhotonNetwork.Instantiate(Path.Combine("Photonprefabs", "Hunter"), Vector3.zero, Quaternion.identity);
     }
 
 }
