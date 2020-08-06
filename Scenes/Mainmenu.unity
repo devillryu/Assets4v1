@@ -656,12 +656,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 744548134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e30e73c2e3ac4dc4787eb18d460914e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 103f7a194e24f294c838c8a92d8acc3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roledisplayasSurvival: {fileID: 1563819546}
   roledisplayasHunter: {fileID: 1000878213}
-  Role: Survival
 --- !u!4 &744548136
 Transform:
   m_ObjectHideFlags: 0
@@ -675,6 +674,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &944648291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 944648293}
+  - component: {fileID: 944648292}
+  m_Layer: 0
+  m_Name: KeepRole(Instance)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &944648292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944648291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e30e73c2e3ac4dc4787eb18d460914e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Role: Survival
+--- !u!4 &944648293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944648291}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 338.44775, y: 67.7155, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1000878213
 GameObject:

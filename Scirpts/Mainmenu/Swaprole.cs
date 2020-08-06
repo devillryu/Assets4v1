@@ -4,30 +4,17 @@ using UnityEngine;
 
 public class Swaprole : MonoBehaviour
 {
-    public GameObject roledisplayasSurvival;
-    public GameObject roledisplayasHunter;
-    [SerializeField]
-    private string Role = "Survival"; //Dont destroyonload & Instance
+    public static Swaprole chooserole {get; private set;}
+    public string Role = "Survival"; //Dont destroyonload & Instance
     // Start is called before the first frame update
-    public void Swaproleforplay()
+    public void Awake()
     {
-        if (Role == "Survival")
-            Role = "Hunter";
-        else
-            Role = "Survival";
-        ChangeDisplay();
-    }
-    public void ChangeDisplay()
-    {
-        if (Role == "Survival")
+        if(chooserole == null)
         {
-            roledisplayasSurvival.SetActive(true);
-            roledisplayasHunter.SetActive(false);
+            chooserole = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
-        {
-            roledisplayasHunter.SetActive(true);
-            roledisplayasSurvival.SetActive(false);
-        }
+        Destroy(gameObject);
     }
 }
