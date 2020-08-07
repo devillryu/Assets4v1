@@ -9,6 +9,9 @@ namespace game4v1
     {
         public float speed = 5f;
         public VariableJoystick variableJoystick;
+
+        //Map
+        public button Actionbutton;//Actionbutton
         public CharacterController controller;
         void Awake()
         {
@@ -33,14 +36,7 @@ namespace game4v1
         public void FixedUpdate()
         {
             Move();
-            if(Swaprole.chooserole.Role == "Survival")
-            {
-                //SurvivalAction()
-            }
-            else
-            {
-                //HunterAction()
-            }
+            
         }
         void Move()
         {
@@ -63,5 +59,16 @@ namespace game4v1
         //     player = PhotonNetwork.Instantiate(Prefab.gameObject.name,position,rotation).GetComponent<Player>();
         //     player.transform.position = position;
         // }
+        public void Action()
+        {
+            if(Swaprole.chooserole.Role == "Survival")
+            {
+                //SurvivalAction()
+            }
+            else
+            {
+                //HunterAction()
+            }
+        }
     }
 }
