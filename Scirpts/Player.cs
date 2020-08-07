@@ -24,6 +24,7 @@ namespace game4v1
         void Start()
         {
             variableJoystick = FindObjectOfType<VariableJoystick>();
+            Actionbutton = GameObject.Find("ActionButton").GetComponent<Button>();
             if(Swaprole.chooserole.Role == "Survival")
             {
                 //SurvivalAction()
@@ -60,18 +61,5 @@ namespace game4v1
         //     player = PhotonNetwork.Instantiate(Prefab.gameObject.name,position,rotation).GetComponent<Player>();
         //     player.transform.position = position;
         // }
-        public void Action()
-        {
-            if (!photonView.IsMine)
-                return;
-            if(Swaprole.chooserole.Role == "Survival")
-            {
-                //SurvivalAction()
-            }
-            else
-            {
-                //HunterAction()
-            }
-        }
     }
 }
