@@ -271,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   variableJoystick: {fileID: 0}
+  Actionbutton: {fileID: 0}
   controller: {fileID: 5925514705028824431}
 --- !u!143 &5925514705028824431
 CharacterController:

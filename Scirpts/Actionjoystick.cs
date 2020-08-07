@@ -19,11 +19,12 @@ public class Actionjoystick : MonoBehaviour
         {
             if(Swaprole.chooserole.Role == "Survival")
             {
+                Debug.Log("Invest");
                 //SurvivalAction()
             }
             else
             {
-                print("r");
+                print("Attack");
                 //HunterAction()
             }
         }
