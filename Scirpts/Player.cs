@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 
 namespace game4v1
@@ -11,7 +12,7 @@ namespace game4v1
         public VariableJoystick variableJoystick;
 
         //Map
-        public button Actionbutton;//Actionbutton
+        public Button Actionbutton;//Actionbutton
         public CharacterController controller;
         void Awake()
         {
