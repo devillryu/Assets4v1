@@ -48,7 +48,7 @@ namespace game4v1
             Move();
             if (Sit == true)
                 speed = 2.5f;
-                else
+            else
                 speed = 5f;
         }
         void Move()
