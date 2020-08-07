@@ -61,6 +61,8 @@ namespace game4v1
         // }
         public void Action()
         {
+            if (!photonView.IsMine)
+                return;
             if(Swaprole.chooserole.Role == "Survival")
             {
                 //SurvivalAction()
