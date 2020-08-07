@@ -16,9 +16,13 @@ namespace game4v1
         public Button Skillanditembutton;
         public Button Sitbutton;
         public CharacterController controller;
+
+        //Fix belowthis
         public static bool CanInvest = false;
         public static bool canOpenChest = false;
         public static bool Sit = false;
+        public static bool Trapped = false;
+        public static int TrapPress = 10;
         void Awake()
         {
             if (!photonView.IsMine && variableJoystick != null)
@@ -45,10 +49,18 @@ namespace game4v1
         }
         public void FixedUpdate()
         {
-            Move();
+            if (Trapped == false)
+                Move();
+            if (TrapPress == 0 && Trapped == true)
+            {
+                Trapped = false;
+                TrapPress = 10;
+            }
+
+
             if (Sit == true)
                 speed = 2.5f;
-            else
+            else if(Sit == false && Swaprole.chooserole.Role == "Survival")
                 speed = 5f;
         }
         void Move()
@@ -82,6 +94,15 @@ namespace game4v1
         //     player = PhotonNetwork.Instantiate(Prefab.gameObject.name,position,rotation).GetComponent<Player>();
         //     player.transform.position = position;
         // }
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Trap" && Swaprole.chooserole.Role == "Survival")
+            {
+                print("Trap");
+                if(photonView.IsMine)
+                Trapped = true;
+            }
+        }
         void OnTriggerStay(Collider other)
         {
             if (other.tag == "Investzone")

@@ -260,6 +260,7 @@ MonoBehaviour:
   variableJoystick: {fileID: 0}
   Actionbutton: {fileID: 0}
   Skillanditembutton: {fileID: 0}
+  Sitbutton: {fileID: 0}
   controller: {fileID: 8690707255650408269}
 --- !u!114 &8690707255650408279
 MonoBehaviour:

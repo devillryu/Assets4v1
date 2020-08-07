@@ -10,7 +10,8 @@ public class Actionjoystick : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if(Swaprole.chooserole.Role == "Hunter")
+        Destroy(SitBut);
     }
 
     // Update is called once per frame
@@ -26,6 +27,8 @@ public class Actionjoystick : MonoBehaviour
             Debug.Log("Invest");
             if(Player.canOpenChest == true)
             Box.isOpen = true;
+            if(Player.Trapped == true)
+            Player.TrapPress--;
         }
         else
         {
@@ -52,10 +55,6 @@ public class Actionjoystick : MonoBehaviour
             Player.Sit = true;
             else
             Player.Sit = false;
-        }
-        else
-        {
-            Destroy(SitBut);
         }
     }
 }

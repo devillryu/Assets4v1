@@ -1,39 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class CameraFollow : MonoBehaviour
+public class CameraFollow : MonoBehaviourPun
 {
-    Vector3 FirstPoint;
-    Vector3 SecondPoint;
-    float xAngle;
-    float yAngle;
-    float xAngleTemp;
-    float yAngleTemp;
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        if (Input.touchCount > 0)
-        {
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+	void Start()
+	{
+		if(!photonView.IsMine)
             {
-                FirstPoint = Input.GetTouch(0).position;
-                xAngleTemp = xAngle;
-                yAngleTemp = yAngle;
+                Destroy(this.gameObject);
             }
-            if (Input.GetTouch(0).phase == TouchPhase.Moved)
-            {
-                SecondPoint = Input.GetTouch(0).position;
-                xAngle = xAngleTemp + (SecondPoint.x - FirstPoint.x) * 180 / Screen.width;
-                yAngle = yAngleTemp + (SecondPoint.y - FirstPoint.y) * 90 / Screen.height;
-                this.transform.rotation = Quaternion.Euler(yAngle, xAngle, 0.0f);
-            }
-        }
+	}
+    // public Transform target;
 
-    }
+	// public float smoothSpeed = 0.125f;
+	// public Vector3 offset;
+    // void Start()
+    // {
+		
+    // }
+
+	// void FixedUpdate()
+	// {
+	// 	Vector3 desiredPosition = target.position + offset;
+	// 	Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+	// 	transform.position = smoothedPosition;
+
+	// 	transform.LookAt(target);
+	// }
 }
