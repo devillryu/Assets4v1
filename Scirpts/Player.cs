@@ -16,6 +16,7 @@ namespace game4v1
         public Button Skillanditembutton;
         public CharacterController controller;
         public static bool CanInvest = false;
+        public static bool canOpenChest = false;
         void Awake()
         {
             if (!photonView.IsMine && variableJoystick != null)
@@ -47,12 +48,18 @@ namespace game4v1
         {
             if (!photonView.IsMine)
                 return;
+            Vector3 direction = Vector3.forward * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal;
+            controller.Move(direction * speed * Time.fixedDeltaTime);
+
             if (CanInvest == true)
             {
                 CanInvest = false;
             }
-            Vector3 direction = Vector3.forward * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal;
-            controller.Move(direction * speed * Time.fixedDeltaTime);
+
+            if (canOpenChest == true)
+            {
+                canOpenChest = false;
+            }
         }
         // public static void RefreshInstance(ref Player player,Player Prefab)
         // {
@@ -75,12 +82,22 @@ namespace game4v1
                 CanInvest = true;
             }
 
+            if (other.tag == "Boxcheck")
+            {
+                canOpenChest = true;
+            }
+
         }
         void OnTriggerExit(Collider other)
         {
             if (other.tag == "Investzone")
             {
                 CanInvest = false;
+            }
+
+            if (other.tag == "Boxcheck")
+            {
+                canOpenChest = false;
             }
         }
     }

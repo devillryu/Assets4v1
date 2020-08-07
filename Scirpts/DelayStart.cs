@@ -120,7 +120,7 @@ public class DelayStart : MonoBehaviourPunCallbacks
     }
     void WaitingForMorePlayers()
     {
-        if(playerCount <= 1)
+        if(playerCount < 1)
         {
             ResetTimer();
         }
