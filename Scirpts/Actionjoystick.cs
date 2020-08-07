@@ -6,6 +6,7 @@ namespace game4v1
 {
 public class Actionjoystick : MonoBehaviour
 {
+    public GameObject SitBut; 
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,8 @@ public class Actionjoystick : MonoBehaviour
         {
             if(Player.CanInvest == true)
             Debug.Log("Invest");
+            if(Player.canOpenChest == true)
+            Box.isOpen = true;
         }
         else
         {
@@ -39,6 +42,20 @@ public class Actionjoystick : MonoBehaviour
         else
         {
             Debug.Log("Skill");
+        }
+    }
+    public void Sit()
+    {
+        if(Swaprole.chooserole.Role == "Survival")
+        {
+            if(Player.Sit == false)
+            Player.Sit = true;
+            else
+            Player.Sit = false;
+        }
+        else
+        {
+            Destroy(SitBut);
         }
     }
 }

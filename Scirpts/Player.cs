@@ -14,9 +14,11 @@ namespace game4v1
         //Map
         public Button Actionbutton;//Actionbutton
         public Button Skillanditembutton;
+        public Button Sitbutton;
         public CharacterController controller;
         public static bool CanInvest = false;
         public static bool canOpenChest = false;
+        public static bool Sit = false;
         void Awake()
         {
             if (!photonView.IsMine && variableJoystick != null)
@@ -29,8 +31,10 @@ namespace game4v1
             variableJoystick = FindObjectOfType<VariableJoystick>();
             Actionbutton = GameObject.Find("ActionButton").GetComponent<Button>();
             Skillanditembutton = GameObject.Find("SkillanduseitemButton").GetComponent<Button>();
+            Sitbutton = GameObject.Find("SitButton").GetComponent<Button>();
             if (Swaprole.chooserole.Role == "Survival")
             {
+
                 //SurvivalAction()
             }
             else
@@ -42,7 +46,10 @@ namespace game4v1
         public void FixedUpdate()
         {
             Move();
-
+            if (Sit == true)
+                speed = 2.5f;
+                else
+                speed = 5f;
         }
         void Move()
         {
