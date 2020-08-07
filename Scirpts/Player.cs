@@ -13,10 +13,12 @@ namespace game4v1
 
         //Map
         public Button Actionbutton;//Actionbutton
+        public Button Skillanditembutton;
         public CharacterController controller;
+        public static bool CanInvest = false;
         void Awake()
         {
-            if(!photonView.IsMine && variableJoystick != null)
+            if (!photonView.IsMine && variableJoystick != null)
             {
                 variableJoystick = null;
             }
@@ -25,7 +27,8 @@ namespace game4v1
         {
             variableJoystick = FindObjectOfType<VariableJoystick>();
             Actionbutton = GameObject.Find("ActionButton").GetComponent<Button>();
-            if(Swaprole.chooserole.Role == "Survival")
+            Skillanditembutton = GameObject.Find("SkillanduseitemButton").GetComponent<Button>();
+            if (Swaprole.chooserole.Role == "Survival")
             {
                 //SurvivalAction()
             }
@@ -38,7 +41,7 @@ namespace game4v1
         public void FixedUpdate()
         {
             Move();
-            
+
         }
         void Move()
         {
@@ -51,7 +54,7 @@ namespace game4v1
         // {
         //     var position = Vector3.zero;
         //     var rotation = Quaternion.identity;
-           
+
         //     if(player != null && PhotonNetwork.IsMasterClient)
         //     {
         //         position = player.transform.position;
@@ -61,5 +64,20 @@ namespace game4v1
         //     player = PhotonNetwork.Instantiate(Prefab.gameObject.name,position,rotation).GetComponent<Player>();
         //     player.transform.position = position;
         // }
+        void OnTriggerStay(Collider other)
+        {
+            if (other.tag == "Investzone")
+            {
+                CanInvest = true;
+            }
+
+        }
+        void OnTriggerExit(Collider other)
+        {
+            if(other.tag == "Investzone")
+            {
+                CanInvest = false;
+            }
+        }
     }
 }
