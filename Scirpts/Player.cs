@@ -47,6 +47,10 @@ namespace game4v1
         {
             if (!photonView.IsMine)
                 return;
+            if (CanInvest == true)
+            {
+                CanInvest = false;
+            }
             Vector3 direction = Vector3.forward * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal;
             controller.Move(direction * speed * Time.fixedDeltaTime);
         }
@@ -74,7 +78,7 @@ namespace game4v1
         }
         void OnTriggerExit(Collider other)
         {
-            if(other.tag == "Investzone")
+            if (other.tag == "Investzone")
             {
                 CanInvest = false;
             }

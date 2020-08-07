@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 97070494}
   - component: {fileID: 97070498}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Investzone
   m_TagString: Investzone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
