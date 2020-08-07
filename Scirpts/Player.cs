@@ -19,9 +19,30 @@ namespace game4v1
         }
         void Start()
         {
-                variableJoystick = FindObjectOfType<VariableJoystick>();
+            variableJoystick = FindObjectOfType<VariableJoystick>();
+            if(Swaprole.chooserole.Role == "Survival")
+            {
+                //SurvivalAction()
+            }
+            else
+            {
+                speed = 7f;
+                //HunterAction()
+            }
         }
         public void FixedUpdate()
+        {
+            Move();
+            if(Swaprole.chooserole.Role == "Survival")
+            {
+                //SurvivalAction()
+            }
+            else
+            {
+                //HunterAction()
+            }
+        }
+        void Move()
         {
             if (!photonView.IsMine)
                 return;

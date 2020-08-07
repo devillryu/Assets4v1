@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class Quickstartlobbycontroller : MonoBehaviourPunCallbacks
 {
     public GameObject quickstartbutton;
     public GameObject quickcancelbutton;
     public int Roomsize;
+    private ExitGames.Client.Photon.Hashtable _mycustomProperties = new ExitGames.Client.Photon.Hashtable();
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -55,9 +57,11 @@ public class Quickstartlobbycontroller : MonoBehaviourPunCallbacks
     {
         Debug.Log("Create Room");
         int randomRoomNumber = Random.Range(0, 10000);
-        RoomOptions roomOps = new RoomOptions() {IsVisible = true, IsOpen = true, MaxPlayers = (byte)Roomsize };
+        RoomOptions roomOps = new RoomOptions() {IsVisible = true, IsOpen = true, MaxPlayers = (byte)Roomsize};
         // roomOps.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable();
         // int Surcount = (int)roomOps.Currentroom.CustomRoomProperties["Surcount"];
+        // _mycustomProperties["SurvivalCount"] =0;
+        // PhotonNetwork.LocalPlayer.CustomProperties = _mycustomProperties;
 
         PhotonNetwork.CreateRoom("Room" + randomRoomNumber, roomOps);
         Debug.Log(randomRoomNumber);
@@ -72,4 +76,6 @@ public class Quickstartlobbycontroller : MonoBehaviourPunCallbacks
         quickstartbutton.SetActive(true);
         PhotonNetwork.LeaveRoom();
     }
+
+    
 }

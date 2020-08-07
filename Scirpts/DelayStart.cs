@@ -96,6 +96,12 @@ public class DelayStart : MonoBehaviourPunCallbacks
     {
         PlayerCountUpdate();
     }
+
+    public override void OnJoinedRoom()
+    {
+        
+    }
+
     [PunRPC]
     private void RPC_SendTimer(float timeIn)
     {
