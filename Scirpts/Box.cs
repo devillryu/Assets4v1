@@ -1,14 +1,11 @@
-﻿using game4v1;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using Photon.Pun;
 
 public class Box : MonoBehaviourPun
-{
-    public GameObject CloseBox;
-    public GameObject openBox;
-    public static bool isOpen = false;
+{    public static bool isOpen = false;
 
     public void Update()
     {
@@ -20,9 +17,8 @@ public class Box : MonoBehaviourPun
     {
         if (isOpen == true)
         {
-           
-            openBox.SetActive(true);
-            CloseBox.SetActive(false);
+            PhotonNetwork.Destroy(this.gameObject);
+            PhotonNetwork.Instantiate(Path.Combine("Photonprefabs", "OpenChest"), this.transform.position, Quaternion.identity); //Fix position
         }
         else
         {

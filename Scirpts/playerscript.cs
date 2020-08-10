@@ -108,11 +108,13 @@ namespace game4v1
         {
             if (other.tag == "Investzone")
             {
+                if(photonView.IsMine)
                 CanInvest = true;
             }
 
             if (other.tag == "Boxcheck")
             {
+                if(photonView.IsMine)
                 canOpenChest = true;
             }
 
@@ -121,11 +123,13 @@ namespace game4v1
         {
             if (other.tag == "Investzone")
             {
+                if(photonView.IsMine)
                 CanInvest = false;
             }
 
             if (other.tag == "Boxcheck")
             {
+                if(photonView.IsMine)
                 canOpenChest = false;
             }
         }

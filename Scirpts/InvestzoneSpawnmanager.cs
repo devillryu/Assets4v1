@@ -15,9 +15,9 @@ public class InvestzoneSpawnmanager : MonoBehaviourPun
     void Start()
     {
         // photonView.RPC("Spawnzone", RpcTarget.AllBuffered);
-        if(PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient)
         {
-        Spawnzone();
+            Spawnzone();
         }
     }
     void Spawnzone()
@@ -32,7 +32,6 @@ public class InvestzoneSpawnmanager : MonoBehaviourPun
             }
             TakeList[i] = randomnumber;
             PhotonNetwork.Instantiate(Path.Combine("Photonprefabs", objective.name), item[TakeList[i] - 1].position, Quaternion.identity);
-            //PhotonNetwork.Instantiate(objective, item[TakeList[i] - 1].position, Quaternion.identity,0);
             obj++;
         }
     }
