@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// using Photon.Pun;
 
 public class Box : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Box : MonoBehaviour
     {
         if (isOpen == true) 
         {
+            // photonView.RPC("Openchest",RpcTarget.All);
             openBox.SetActive(true);
             CloseBox.SetActive(false);
         }

@@ -25,6 +25,7 @@ namespace game4v1
         public static int TrapPress = 10;
         void Awake()
         {
+            
             if (!photonView.IsMine && variableJoystick != null)
             {
                 variableJoystick = null;
