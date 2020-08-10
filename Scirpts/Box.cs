@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// using Photon.Pun;
+using Photon.Pun;
 
-public class Box : MonoBehaviour
+public class Box : MonoBehaviourPun
 {
     public GameObject CloseBox;
     public GameObject openBox;
@@ -12,14 +12,15 @@ public class Box : MonoBehaviour
 
     public void Update()
     {
-        OpenChest();
+        photonView.RPC("OpenChest", RpcTarget.All);
     }
 
+    [PunRPC]
     public void OpenChest()
     {
-        if (isOpen == true) 
+        if (isOpen == true)
         {
-            // photonView.RPC("Openchest",RpcTarget.All);
+           
             openBox.SetActive(true);
             CloseBox.SetActive(false);
         }
