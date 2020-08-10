@@ -6,7 +6,7 @@ using Photon.Pun;
 
 namespace game4v1
 {
-    public class Player : MonoBehaviourPun
+    public class playerscript : MonoBehaviourPun
     {
         public float speed = 5f;
         public VariableJoystick variableJoystick;

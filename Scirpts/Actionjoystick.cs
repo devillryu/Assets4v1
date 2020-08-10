@@ -6,12 +6,12 @@ namespace game4v1
 {
 public class Actionjoystick : MonoBehaviour
 {
-    public GameObject SitBut; 
+    public GameObject SitButton; 
     // Start is called before the first frame update
     void Start()
     {
         if(Swaprole.chooserole.Role == "Hunter")
-        Destroy(SitBut);
+        Destroy(SitButton);
     }
 
     // Update is called once per frame
@@ -23,12 +23,12 @@ public class Actionjoystick : MonoBehaviour
     {
         if (Swaprole.chooserole.Role == "Survival")
         {
-            if(Player.CanInvest == true)
+            if(playerscript.CanInvest == true)
             Debug.Log("Invest");
-            if(Player.canOpenChest == true)
+            if(playerscript.canOpenChest == true)
             Box.isOpen = true;
-            if(Player.Trapped == true)
-            Player.TrapPress--;
+            if(playerscript.Trapped == true)
+            playerscript.TrapPress--;
         }
         else
         {
@@ -51,10 +51,10 @@ public class Actionjoystick : MonoBehaviour
     {
         if(Swaprole.chooserole.Role == "Survival")
         {
-            if(Player.Sit == false)
-            Player.Sit = true;
+            if(playerscript.Sit == false)
+            playerscript.Sit = true;
             else
-            Player.Sit = false;
+            playerscript.Sit = false;
         }
     }
 }
